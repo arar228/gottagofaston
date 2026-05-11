@@ -112,13 +112,26 @@
   .nav-links a:hover { color: var(--ink); }
   @media (max-width: 760px) { .nav-links { display: none; } }
   .nav-cta {
+    display: inline-flex; align-items: center; gap: 7px;
     background: var(--cream); color: #0a0a0a;
-    padding: 10px 16px; border-radius: 999px;
+    padding: 9px 16px; border-radius: 999px;
     font-size: 13px; font-weight: 600;
     border: none;
     transition: transform .15s ease, background .15s ease;
+    line-height: 1;
+  }
+  .nav-cta svg { display: block; }
+  .nav-cta::after {
+    content: "↗";
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: #0a0a0a;
+    opacity: 0.55;
+    margin-left: 1px;
+    transition: transform .15s ease, opacity .15s ease;
   }
   .nav-cta:hover { background: #fff; transform: translateY(-1px); }
+  .nav-cta:hover::after { transform: translate(2px, -2px); opacity: 0.85; }
 
   /* ---------- Hero ---------- */
   .hero {
@@ -584,10 +597,8 @@
     }
     .hero h1 .scribble { font-size: 0.7em; }
     .hero-sub { font-size: 15px; line-height: 1.5; margin-bottom: 24px; }
-    .hero-cta { gap: 10px; }
-    .hero-cta .btn { padding: 14px 18px; font-size: 13px; }
-    .hero-cta .btn-primary { flex: 1 1 auto; min-width: 220px; justify-content: center; }
-    .hero-cta .btn-ghost { flex: 1 1 auto; justify-content: center; }
+    .hero-cta { gap: 10px; flex-direction: column; align-items: stretch; }
+    .hero-cta .btn { padding: 14px 18px; font-size: 13px; width: 100%; justify-content: center; }
 
     /* CA pill */
     .ca {
@@ -680,7 +691,6 @@
       <a href="#legend">The legend</a>
     </div>
     <a class="nav-cta" href="https://t.me/GottaGoFasTON" target="_blank" rel="noopener">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: -2px; margin-right: 4px;"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
       Join Telegram
     </a>
   </div>
